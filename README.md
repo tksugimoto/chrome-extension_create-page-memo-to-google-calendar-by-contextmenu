@@ -1,2 +1,2 @@
-# chrome-extension_create-page-memo-to-google-calendar-memo-by-contextmenu
-ページ情報をGoogleカレンダーにメモとして登録
+# [Chrome拡張] ページ情報をGoogleカレンダーにメモとして登録
+右クリックメニューからページ情報をGoogleカレンダーに登録
