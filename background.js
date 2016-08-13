@@ -4,6 +4,10 @@ const ContextMenuId = "a";
 function createContextMenus() {
 	chrome.contextMenus.create({
 		title: "ページをメモ（Googleカレンダーに追加）",
+		contexts: [
+			"page",
+			"selection"
+		],
 		id: ContextMenuId
 	});
 }
@@ -18,6 +22,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 			text: tab.title,
 			details: tab.url
 		};
+		if (info.selectionText) {
+			querys.details += "\n\n" + info.selectionText;
+		}
 
 		const createCalendarUrl = "https://www.google.com/calendar/render?" + Object.keys(querys).map(key => {
 			const value = encodeURIComponent(querys[key]);
