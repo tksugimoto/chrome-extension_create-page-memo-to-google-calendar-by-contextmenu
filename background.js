@@ -31,9 +31,15 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 			return `${key}=${value}`;
 		}).join("&");
 
-		chrome.tabs.create({
-			url: createCalendarUrl,
-			openerTabId: tab.id
-		});
+		const createProperties = {
+			url: createCalendarUrl
+		};
+
+		const openerTabId = tab.id;
+		if (openerTabId !== chrome.tabs.TAB_ID_NONE) {
+			createProperties.openerTabId = openerTabId;
+		}
+
+		chrome.tabs.create(createProperties);
 	}
 });
