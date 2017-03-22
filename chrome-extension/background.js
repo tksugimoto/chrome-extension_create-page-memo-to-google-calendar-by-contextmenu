@@ -1,7 +1,7 @@
 
 const ContextMenuId = "a";
 
-const createContextMenus = () => {
+const createContextMenu = () => {
 	chrome.contextMenus.create({
 		title: "ページをメモ（Googleカレンダーに追加）",
 		contexts: [
@@ -12,8 +12,8 @@ const createContextMenus = () => {
 	});
 };
 
-chrome.runtime.onInstalled.addListener(createContextMenus);
-chrome.runtime.onStartup.addListener(createContextMenus);
+chrome.runtime.onInstalled.addListener(createContextMenu);
+chrome.runtime.onStartup.addListener(createContextMenu);
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
 	if (info.menuItemId === ContextMenuId) {
