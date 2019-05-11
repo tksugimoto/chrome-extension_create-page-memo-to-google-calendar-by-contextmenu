@@ -6,9 +6,9 @@ const createContextMenu = () => {
 		title: 'ページをメモ（Googleカレンダーに追加）',
 		contexts: [
 			'page',
-			'selection'
+			'selection',
 		],
-		id: ContextMenuId
+		id: ContextMenuId,
 	});
 };
 
@@ -20,7 +20,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 		const queryObject = {
 			action: 'TEMPLATE',
 			text: tab.title,
-			details: tab.url
+			details: tab.url,
 		};
 		if (info.selectionText) {
 			queryObject.details += '\n\n' + info.selectionText;
@@ -32,7 +32,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 		const calendarCreateUrl = 'https://www.google.com/calendar/render?' + querys.join('&');
 
 		const createProperties = {
-			url: calendarCreateUrl
+			url: calendarCreateUrl,
 		};
 
 		const openerTabId = tab.id;
