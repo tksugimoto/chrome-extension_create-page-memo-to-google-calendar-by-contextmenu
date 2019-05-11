@@ -3,7 +3,7 @@ const ContextMenuId = 'a';
 
 const createContextMenu = () => {
 	chrome.contextMenus.create({
-		title: 'ページをメモ（Googleカレンダーに追加）',
+		title: 'Googleカレンダーに追加（ページをメモ）',
 		contexts: [
 			'page',
 			'selection',
