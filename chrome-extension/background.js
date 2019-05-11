@@ -17,10 +17,19 @@ chrome.runtime.onStartup.addListener(createContextMenu);
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
 	if (info.menuItemId === ContextMenuId) {
+		const startDate = new Date();
+		const endDate = new Date(startDate.getTime());
+		endDate.setHours(startDate.getHours() + 1);
+		const dates = [
+			startDate.toISOString().replace(/-|:|\.\d{3}/g, ''),
+			endDate.toISOString().replace(/-|:|\.\d{3}/g, ''),
+		];
+
 		const queryObject = {
 			action: 'TEMPLATE',
 			text: tab.title,
 			details: tab.url,
+			dates: dates.join('/'),
 		};
 		if (info.selectionText) {
 			queryObject.details += '\n\n' + info.selectionText;
