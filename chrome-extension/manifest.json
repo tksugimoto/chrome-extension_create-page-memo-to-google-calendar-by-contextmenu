@@ -1,7 +1,7 @@
 {
 	"name": "ページをメモ（カレンダーに送信）",
 	"version": "0.1.0",
-	"manifest_version": 2,
+	"manifest_version": 3,
 
 	"description": "create page memo to google calendar by contextmenu",
 
@@ -10,9 +10,6 @@
 	],
 
 	"background": {
-		"persistent": false,
-		"scripts": [
-			"background.js"
-		]
+		"service_worker": "background.js"
 	}
 }
