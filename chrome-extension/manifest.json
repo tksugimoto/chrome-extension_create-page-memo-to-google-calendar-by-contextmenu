@@ -6,6 +6,7 @@
 	"description": "create page memo to google calendar by contextmenu",
 
 	"permissions": [
+		"activeTab",
 		"contextMenus"
 	],
 
