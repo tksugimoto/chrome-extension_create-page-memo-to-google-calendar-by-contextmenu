@@ -7,6 +7,7 @@ const createContextMenu = () => {
 		contexts: [
 			'page',
 			'selection',
+			'tab',
 		],
 		id: ContextMenuId,
 	});
